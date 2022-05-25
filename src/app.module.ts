@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import ormconfig from './ormconfig';
 import { envSchema } from './shared/schema/env.schema';
+import { MetadataModule } from './modules/metadata/metadata.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { envSchema } from './shared/schema/env.schema';
       limit: 10,
     }),
     TypeOrmModule.forRoot(ormconfig),
+    MetadataModule,
   ],
   controllers: [],
   providers: [],
