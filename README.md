@@ -41,7 +41,7 @@ NFT OnChain Metadata
 git clone [github repo URL]
 
 # 2. Enter your newly-cloned folder.
-cd nestjs-template
+cd nft-on-chain-metadata
 
 # 3. Install dependencies.
 npm install

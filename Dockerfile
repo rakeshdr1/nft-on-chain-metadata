@@ -1,16 +1,16 @@
 FROM node:16.13.2-alpine AS dist
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-RUN yarn install
+RUN npm install
 
 COPY . ./
 
-RUN yarn build
+RUN npm run build
 
 FROM node:16.13.2-alpine AS node_modules
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-RUN yarn install --prod
+RUN npm install --prod
 
 FROM node:16.13.2-alpine
 
@@ -27,4 +27,4 @@ COPY . /usr/src/app
 
 EXPOSE $PORT
 
-CMD [ "yarn", "start:prod" ]
+CMD [ "npm", "run", "start:prod" ]

@@ -2,7 +2,7 @@ version: "3"
 services:
   app:
     env_file:
-      - .env.production
+      - .env
     container_name: starter_nest
     restart: always
     build: .
