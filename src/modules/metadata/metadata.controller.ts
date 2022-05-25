@@ -10,6 +10,6 @@ export class MetadataController {
 
   @Get('uri/:nftId')
   async getMetadata(@Param('nftId') nftId: number) {
-    return this.metadataService.getMetadata(nftId);
+    return await this.metadataService.getMetadata(nftId);
   }
 }

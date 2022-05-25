@@ -43,11 +43,11 @@ git clone [github repo URL]
 # 2. Enter your newly-cloned folder.
 cd nestjs-template
 
-# 3. Install dependencies. (Make sure yarn is installed: https://yarnpkg.com/lang/en/docs/install)
-yarn install
+# 3. Install dependencies.
+npm install
 
 # 4. Run development server and open http://localhost:3000
-yarn start:dev
+npm run start:dev
 
 ```
 
@@ -65,13 +65,13 @@ PORT=3000 docker-compose up
 
 ```bash
 # unit tests
-$ yarn test
+$ npm run test
 
 # e2e tests
-$ yarn test:e2e
+$ npm run test:e2e
 
 # test coverage
-$ yarn test:cov
+$ npm run test:cov
 ```
 
 ---
@@ -89,10 +89,10 @@ Please refer [.env.example](./.example.env) for the env variables that is needed
 ## Database Migrations
 
 Generate migration from database
-`yarn migration:generate initialMigration`
+`npm run migration:generate initialMigration`
 
 Run migrations
-`yarn migration:run`
+`npm run migration:run`
 
 ---
 

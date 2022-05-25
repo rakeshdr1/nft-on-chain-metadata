@@ -17,9 +17,6 @@ export class MetadataService {
         nftContractABI,
         nftContractAddress,
       );
-      const metadata = await contractConnection.methods
-        .getMetaData(nftId)
-        .call();
 
       if (!contractConnection) {
         return {
@@ -27,11 +24,16 @@ export class MetadataService {
           description: 'metadata not found',
         };
       }
+
+      const metadata = await contractConnection.methods
+        .getMetaData(nftId)
+        .call();
+
       const metadataToSend = { attributes: [] };
       for (const key in metadata) {
         if (key == 'name' || key == 'image' || key == 'description') {
           metadataToSend[key] = metadata[key];
-        } else {
+        } else if (isNaN(Number(key))) {
           metadataToSend.attributes.push({
             trait_type: key,
             value: metadata[key],
